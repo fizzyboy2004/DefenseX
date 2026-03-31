@@ -65,12 +65,6 @@ DefenseX/
 
 ---
 
-## 📸 Screenshots
-
-(Add screenshots here for better presentation)
-
----
-
 ## 🌟 Highlights
 
 * Interactive learning through gameplay
