@@ -356,6 +356,57 @@
   .tool-btn .tb-name { font-size: 0.78rem; }
   .tool-btn .tb-cd   { font-size: 0.68rem; font-family: 'Fira Code',monospace; opacity: 0.9; }
 
+  /* ── Hint box ── */
+  .hint-box {
+    width: 100%;
+    max-width: 560px;
+    background: #fffbe6;
+    border: 2.5px solid #ffe066;
+    border-radius: 18px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 12px rgba(244,162,40,0.10);
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+  .hint-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .hint-body { flex: 1; }
+  .hint-label {
+    font-size: 0.68rem; font-weight: 900; color: #b46000;
+    letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 0.25rem;
+  }
+  .hint-text { font-size: 0.88rem; font-weight: 700; color: #5a3a00; line-height: 1.5; }
+  .hint-steps { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .hint-step {
+    font-size: 0.8rem; font-weight: 600; color: #6b4400;
+    background: rgba(255,224,102,0.35); border-radius: 8px;
+    padding: 0.25rem 0.6rem; display: flex; align-items: center; gap: 0.4rem;
+  }
+  .hint-nav { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; }
+  .hint-nav-btn {
+    background: #ffe066; border: none; border-radius: 8px;
+    padding: 0.25rem 0.65rem; font-size: 0.78rem; font-weight: 800;
+    cursor: pointer; color: #7a4f00; transition: background 0.15s;
+  }
+  .hint-nav-btn:hover { background: #ffd700; }
+  .hint-dot-row { display: flex; gap: 0.3rem; align-items: center; }
+  .hint-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #ffe066; border: 1.5px solid #f4a228; transition: background 0.2s;
+  }
+  .hint-dot.active { background: #f4a228; }
+
+  /* Objective banner */
+  .obj-banner {
+    width: 100%; max-width: 560px;
+    background: linear-gradient(90deg, #e8f4fd, #e0f7f0);
+    border: 2px solid var(--border); border-radius: 14px;
+    padding: 0.65rem 1.1rem; margin-bottom: 0.9rem;
+    font-size: 0.85rem; font-weight: 700; color: var(--blue2);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
   /* Feedback strip */
   .feedback-strip {
     width: 100%;
@@ -374,6 +425,74 @@
   .feedback-strip.good { background: #e8faf3; border-color: var(--teal); color: var(--teal2); }
   .feedback-strip.bad  { background: #fdeaea; border-color: var(--red);  color: var(--red2); }
   .feedback-strip.warn { background: #fff8e1; border-color: var(--orange); color: #b46000; }
+
+  /* ══════════════════════════════
+     BRIEFING POPUP (before level)
+  ══════════════════════════════ */
+  .briefing-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 0;
+    max-width: 420px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 16px 60px rgba(26,46,66,0.28);
+    animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .brief-header {
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    padding: 1.4rem 1.6rem 1.2rem;
+    color: #fff; text-align: center;
+  }
+  .brief-badge { font-size: 0.65rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.8; margin-bottom: 0.3rem; }
+  .brief-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 0.2rem; }
+  .brief-sub   { font-size: 0.85rem; opacity: 0.85; }
+  .brief-body  { padding: 1.2rem 1.4rem 0; }
+  .brief-obj {
+    background: #fffbe6; border: 2px solid #ffe066;
+    border-radius: 12px; padding: 0.75rem 0.9rem;
+    margin-bottom: 1rem; display: flex; gap: 0.6rem; align-items: flex-start;
+  }
+  .brief-obj-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .brief-obj-lbl  { font-size: 0.63rem; font-weight: 900; color: #b46000; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .brief-obj-text { font-size: 0.86rem; font-weight: 700; color: #5a3a00; line-height: 1.5; }
+  .brief-rules-lbl {
+    font-size: 0.63rem; font-weight: 900; color: var(--blue2);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.55rem;
+  }
+  .brief-rule {
+    display: flex; align-items: flex-start; gap: 0.55rem;
+    background: #f0f7ff; border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 0.55rem 0.75rem; margin-bottom: 0.45rem;
+  }
+  .brief-rule-icon { font-size: 1.05rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .brief-rule-text { font-size: 0.83rem; font-weight: 700; color: var(--text); line-height: 1.45; }
+  .brief-rule-sub  { font-size: 0.73rem; font-weight: 600; color: var(--text2); margin-top: 0.1rem; }
+  .brief-tools-lbl { font-size: 0.63rem; font-weight: 900; color: var(--teal2); letter-spacing: 1px; text-transform: uppercase; margin: 0.85rem 0 0.45rem; }
+  .brief-tools-row { display: flex; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+  .brief-tool-chip {
+    display: flex; align-items: center; gap: 0.35rem;
+    background: #e8faf3; border: 1.5px solid #b2ecd8;
+    border-radius: 20px; padding: 0.28rem 0.75rem;
+    font-size: 0.78rem; font-weight: 800; color: var(--teal2);
+  }
+  .brief-tip {
+    background: #f0f7ff; border-top: 1.5px solid var(--border);
+    padding: 0.65rem 1.4rem;
+    font-size: 0.78rem; font-weight: 700; color: var(--text2);
+    display: flex; align-items: center; gap: 0.45rem;
+  }
+  .brief-footer { padding: 0.9rem 1.4rem 1.3rem; }
+  .brief-start-btn {
+    width: 100%; background: linear-gradient(135deg, var(--blue), var(--teal));
+    color: #fff; border: none; border-radius: 14px;
+    padding: 0.9rem; font-family: 'Nunito', sans-serif;
+    font-size: 1rem; font-weight: 900; cursor: pointer;
+    box-shadow: 0 4px 18px rgba(45,125,210,0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .brief-start-btn:hover { transform: scale(1.03); box-shadow: 0 6px 24px rgba(45,125,210,0.4); }
 
   /* ══════════════════════════════
      POPUP (Fact & Level Complete)
@@ -586,6 +705,26 @@
     <div class="hp-track"><div class="hp-bar" id="hpBar" style="width:100%"></div></div>
   </div>
 
+  <!-- Objective banner -->
+  <div class="obj-banner" id="objBanner">
+    🎯 <span id="objText">Objective loads here…</span>
+  </div>
+
+  <!-- Hint box -->
+  <div class="hint-box" id="hintBox">
+    <div class="hint-icon">💡</div>
+    <div class="hint-body">
+      <div class="hint-label">Gameplay Hint</div>
+      <div class="hint-text" id="hintText">Hint loads here…</div>
+      <div class="hint-steps" id="hintSteps"></div>
+      <div class="hint-nav">
+        <button class="hint-nav-btn" onclick="prevHint()">‹ Prev</button>
+        <div class="hint-dot-row" id="hintDots"></div>
+        <button class="hint-nav-btn" onclick="nextHint()">Next ›</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Incoming attacks -->
   <div class="attack-area">
     <div class="aa-title">🚨 Incoming Attacks</div>
@@ -600,6 +739,13 @@
 
   <!-- Feedback -->
   <div class="feedback-strip" id="feedbackStrip">Use your tools to stop the attacks!</div>
+</div>
+
+<!-- ══════════ BRIEFING OVERLAY (shown before every level) ══════════ -->
+<div class="overlay hidden" id="briefingOverlay">
+  <div class="briefing-card" id="briefingCard">
+    <!-- filled dynamically by showBriefing() -->
+  </div>
 </div>
 
 <!-- ══════════ POPUP OVERLAY ══════════ -->
@@ -622,7 +768,7 @@
 <div id="doneScreen" class="screen">
   <div class="done-trophy">🏆</div>
   <div class="done-title">You're a Defender!</div>
-  <div class="done-sub">You completed all 3 levels. Great job learning network security!</div>
+  <div class="done-sub">You completed all 6 levels. Great job learning network security!</div>
   <div class="score-badge">Total Score: <span id="totalScore">0</span></div>
   <button class="btn-start" onclick="restartAll()">🔄 Play Again</button>
 </div>
@@ -658,6 +804,22 @@ const levels = [
     // Total attacks that will spawn this level
     totalThreats: 6,
 
+    // Gameplay hints — shown one at a time in the hint box
+    hints: [
+      {
+        text: "Look at the number next to each IP. That number is how many requests per second it is sending.",
+        steps: ["👀 Read the req/s number", "❓ Is it above 400?", "🚨 If yes → click Alert"]
+      },
+      {
+        text: "Normal users send around 50–200 requests per second. Anything above 400 is suspicious — flag it!",
+        steps: ["✅ Below 400 req/s → click Ignore", "🚨 Above 400 req/s → click Alert"]
+      },
+      {
+        text: "Don't panic if a new attack appears while you are still deciding. You have plenty of time — read carefully first!",
+        steps: ["🐢 Take your time", "📖 Read the req/s value", "🎯 Then click the right button"]
+      }
+    ],
+
     // The cyber fact shown after this level
     fact: {
       text: "Monitoring traffic helps you see when too many requests come from one place. Real tools like Grafana do this 24/7 automatically.",
@@ -681,6 +843,21 @@ const levels = [
     damagePerHit: 15,
     totalThreats: 7,
 
+    hints: [
+      {
+        text: "Rate limiting is like a speed bump. If someone is sending too many requests, you slow them down — but don't fully stop them.",
+        steps: ["⚡ Above 300 req/s → click Rate Limit", "🟢 Below 300 req/s → click Allow"]
+      },
+      {
+        text: "The threshold here is 300 req/s. Think of it like a speed limit on a road — anything over the limit gets throttled.",
+        steps: ["📏 The limit is 300 req/s", "🚗 Over limit = throttle it", "🛣 Under limit = let through"]
+      },
+      {
+        text: "Unlike blocking, rate limiting still lets the user in — just slower. This is good because they might be a real user having a bad day!",
+        steps: ["💡 Real users can have traffic spikes too", "⚡ Rate limit = slow down, not ban", "🟢 Always allow normal traffic"]
+      }
+    ],
+
     fact: {
       text: "Rate limiting means: 'You can only send X requests per second.' NGINX and Cloudflare use this to stop floods without blocking real users.",
       tag: "🔑 Concept: Rate Limiting"
@@ -702,6 +879,21 @@ const levels = [
 
     damagePerHit: 18,
     totalThreats: 8,
+
+    hints: [
+      {
+        text: "In this level, each IP is already labelled for you. You just need to read the label and pick the right tool.",
+        steps: ["🔴 See 'Malicious'? → click Block", "🟢 See 'Safe'? → click Pass"]
+      },
+      {
+        text: "A firewall makes decisions based on rules. Your rule here is simple: if an IP is labelled Malicious, block it. If Safe, pass it.",
+        steps: ["📋 Read the label on each IP", "🛡 Malicious = Block", "✅ Safe = Pass"]
+      },
+      {
+        text: "Blocking the wrong IP (a safe one) still costs you HP. Always read the label before clicking!",
+        steps: ["👁 Always read the label first", "⚠ Wrong choice = HP damage", "🎯 Accuracy matters more than speed"]
+      }
+    ],
 
     fact: {
       text: "A firewall checks every packet and decides: block it or let it through. It's like a security guard at the door of your server.",
@@ -725,6 +917,21 @@ const levels = [
 
     damagePerHit: 15,
     totalThreats: 8,
+
+    hints: [
+      {
+        text: "Each IP shows which country it comes from. Some countries are marked as banned sources of attacks — blacklist those!",
+        steps: ["🌍 Read the country name", "⛔ Banned country? → Blacklist", "✅ Safe country? → Allow"]
+      },
+      {
+        text: "A blacklist is permanent. Once an IP is added, all future traffic from it is blocked automatically — you don't have to do it again!",
+        steps: ["🚫 Blacklist = permanent block", "✅ Allow = trusted source", "🔁 Works for all future visits too"]
+      },
+      {
+        text: "Look for the ⛔ and ✅ emoji right next to the country name — they are your clue. No need to remember any rules, just follow the emoji!",
+        steps: ["⛔ = Banned → click Blacklist", "✅ = Safe → click Allow", "👀 Just follow the emoji!"]
+      }
+    ],
 
     fact: {
       text: "A blacklist is a saved list of bad IPs that are always blocked. When new attacks come from the same IP, they are blocked instantly without you doing anything.",
@@ -750,6 +957,21 @@ const levels = [
     damagePerHit: 14,
     totalThreats: 8,
 
+    hints: [
+      {
+        text: "You have multiple servers (A, B, C, D). When one gets too much traffic, it will say ⚠ Overloaded. That is your signal to redirect!",
+        steps: ["👀 Check the server label", "⚠ Overloaded? → click Redirect", "✅ Normal? → click Looks OK"]
+      },
+      {
+        text: "Redirecting moves some traffic from the busy server to a quieter one. Think of it like moving people from a full checkout lane to an empty one.",
+        steps: ["↩ Redirect = move traffic away", "👍 Looks OK = no action needed", "⚖ Goal: keep all servers balanced"]
+      },
+      {
+        text: "If you redirect too often when servers are fine, you waste resources. Only redirect when you see the ⚠ Overloaded warning.",
+        steps: ["⚠ Wait for the overload warning", "✅ Normal traffic = no action", "🎯 Accuracy = better score"]
+      }
+    ],
+
     fact: {
       text: "A load balancer sends each visitor to a different server so none of them gets too busy. Big websites like YouTube use hundreds of servers with load balancers in front.",
       tag: "🔑 Concept: Load Balancing"
@@ -773,6 +995,21 @@ const levels = [
     damagePerHit: 20,
     totalThreats: 9,
 
+    hints: [
+      {
+        text: "A brute force attack is when a robot tries hundreds of passwords very quickly. You can spot it by the number of failed login attempts.",
+        steps: ["🔴 Many failed attempts? → Lock Account", "🟢 Just 1–4 attempts? → Ignore (normal)"]
+      },
+      {
+        text: "The danger sign is more than 50 failed attempts in one go. A real user usually tries their password only 2–3 times before giving up.",
+        steps: ["📊 50+ failed attempts = robot attack", "👤 1–4 attempts = real user", "🔒 Lock the robot out immediately"]
+      },
+      {
+        text: "Locking the account stops the robot from guessing more passwords. In real life, websites also add a time delay or CAPTCHA after too many wrong guesses.",
+        steps: ["🔒 Lock = stop guessing immediately", "⏱ Real sites also add delays", "🤖 CAPTCHA helps too"]
+      }
+    ],
+
     fact: {
       text: "Brute force means trying thousands of passwords until one works. Websites stop this by locking an account after a few wrong guesses — usually 5 or less.",
       tag: "🔑 Concept: Brute Force Protection"
@@ -793,6 +1030,7 @@ let state = {
   threats: [],             // current on-screen threats
   spawnTimer: null,        // setInterval for spawning
   completedLevels: [],     // which level IDs are done
+  currentHintIndex: 0,     // which hint is currently showing
 };
 
 /* ─────────────────────────────────────────────
@@ -845,17 +1083,142 @@ function renderLevelList() {
 
 /* ─────────────────────────────────────────────
    STEP 5 — Start a level
+   Now shows a briefing popup first, THEN starts.
 ───────────────────────────────────────────── */
 function startLevel(index) {
-  const lvl = levels[index];
-
-  // Reset game state for this level
+  // Save which level we're going to, then show the briefing
   state.currentLevelIndex = index;
+  showBriefing(levels[index]);
+}
+
+/* ─────────────────────────────────────────────
+   STEP 5a — Build and show the briefing popup
+   Called by startLevel. Fills the briefing card
+   with the level's rules, objective, and tools.
+───────────────────────────────────────────── */
+function showBriefing(lvl) {
+  // Each level has a set of "rules" — simple do/don't instructions.
+  // These are defined per-level right here.
+  const rulesMap = {
+    1: [
+      { icon: '📊', text: 'Check the req/s number on each IP.',        sub: 'That number = requests per second being sent.' },
+      { icon: '🚨', text: 'Click ALERT if it is above 400 req/s.',     sub: 'High traffic = suspicious behaviour.' },
+      { icon: '✅', text: 'Click IGNORE if it is 400 or below.',       sub: 'Normal users rarely exceed 400 req/s.' },
+      { icon: '⚠',  text: 'Wrong answer = server takes damage.',       sub: 'Read carefully before clicking!' }
+    ],
+    2: [
+      { icon: '📏', text: 'The speed limit here is 300 req/s.',        sub: 'Anything over 300 is flooding the server.' },
+      { icon: '⚡', text: 'Click RATE LIMIT for IPs above 300 req/s.', sub: 'This slows them down without banning them.' },
+      { icon: '🟢', text: 'Click ALLOW for IPs at 300 or below.',      sub: 'Normal traffic should flow freely.' },
+      { icon: '💡', text: 'Rate limit ≠ ban.',                         sub: 'The user is slowed, not blocked — they may be real.' }
+    ],
+    3: [
+      { icon: '👀', text: 'Each IP has a label: 🔴 Malicious or 🟢 Safe.', sub: 'The firewall has already flagged them for you.' },
+      { icon: '🛡', text: 'Click BLOCK for any 🔴 Malicious IP.',          sub: 'Blocks all traffic from that IP immediately.' },
+      { icon: '🟢', text: 'Click PASS for any 🟢 Safe IP.',               sub: 'Let their traffic through normally.' },
+      { icon: '🎯', text: 'Accuracy matters more than speed here.',         sub: 'Blocking a safe IP still costs you HP!' }
+    ],
+    4: [
+      { icon: '🌍', text: 'Each IP shows its origin country.',            sub: 'Some countries are banned — look for the emoji.' },
+      { icon: '🚫', text: 'Click BLACKLIST for IPs showing ⛔.',          sub: 'That IP is from a known attack source country.' },
+      { icon: '✅', text: 'Click ALLOW for IPs showing ✅.',              sub: 'These are from trusted, safe regions.' },
+      { icon: '📌', text: 'Blacklisting is permanent.',                    sub: 'Once blocked, that IP never gets in again.' }
+    ],
+    5: [
+      { icon: '🖥', text: 'You have 4 servers: A, B, C, and D.',           sub: 'Traffic should be shared evenly across all of them.' },
+      { icon: '⚠',  text: 'Click REDIRECT when you see ⚠ Overloaded.',    sub: 'This moves traffic to a less busy server.' },
+      { icon: '👍', text: 'Click LOOKS OK when the server load is normal.', sub: 'No action needed — things are balanced.' },
+      { icon: '⚖',  text: 'Goal: keep all servers balanced.',               sub: 'Redirecting too much can overload the other servers!' }
+    ],
+    6: [
+      { icon: '🤖', text: 'A robot is guessing passwords very fast.',          sub: 'It tries hundreds of passwords in seconds.' },
+      { icon: '🔒', text: 'Click LOCK ACCOUNT for 🔴 many failed attempts.',  sub: 'More than 50 failed attempts = robot attack.' },
+      { icon: '✅', text: 'Click IGNORE for 🟢 normal login attempts.',       sub: '1 to 4 failed attempts = probably a real user.' },
+      { icon: '⏱',  text: 'Locking stops the robot immediately.',             sub: 'Real sites also add a time delay or CAPTCHA.' }
+    ]
+  };
+
+  const rules = rulesMap[lvl.id] || [];
+
+  // Build tools preview chips
+  const toolChips = lvl.tools.map(t =>
+    `<span class="brief-tool-chip">${t.icon} ${t.name}</span>`
+  ).join('');
+
+  // Quick tip — one line shown at the bottom of the card
+  const tips = [
+    '🐢 Take your time — attacks arrive slowly.',
+    '📖 Read the label on each threat before clicking.',
+    '🎯 Accuracy gives more points than speed.',
+    '💡 Wrong answers cost HP — think first!',
+    '👀 The hint box in-game can help if you get stuck.'
+  ];
+  const tip = tips[lvl.id % tips.length];
+
+  // Build the full briefing card HTML
+  document.getElementById('briefingCard').innerHTML = `
+    <div class="brief-header">
+      <div class="brief-badge">Level ${lvl.id} of ${levels.length} &nbsp;·&nbsp; ${lvl.badge}</div>
+      <div class="brief-title">${lvl.name}</div>
+      <div class="brief-sub">${lvl.shortDesc}</div>
+    </div>
+
+    <div class="brief-body">
+
+      <div class="brief-obj">
+        <div class="brief-obj-icon">🎯</div>
+        <div>
+          <div class="brief-obj-lbl">Your Objective</div>
+          <div class="brief-obj-text">${lvl.objective}</div>
+        </div>
+      </div>
+
+      <div class="brief-rules-lbl">📋 Rules for this level</div>
+      ${rules.map(r => `
+        <div class="brief-rule">
+          <div class="brief-rule-icon">${r.icon}</div>
+          <div>
+            <div class="brief-rule-text">${r.text}</div>
+            <div class="brief-rule-sub">${r.sub}</div>
+          </div>
+        </div>
+      `).join('')}
+
+      <div class="brief-tools-lbl">🛠 Tools you have</div>
+      <div class="brief-tools-row">${toolChips}</div>
+
+    </div>
+
+    <div class="brief-tip">💬 ${tip}</div>
+
+    <div class="brief-footer">
+      <button class="brief-start-btn" onclick="launchLevel()">
+        ▶ I'm Ready — Start Level ${lvl.id}!
+      </button>
+    </div>
+  `;
+
+  // Show the briefing overlay
+  document.getElementById('briefingOverlay').classList.remove('hidden');
+}
+
+/* ─────────────────────────────────────────────
+   STEP 5b — Launch the level after briefing
+   Called when the player clicks "I'm Ready"
+───────────────────────────────────────────── */
+function launchLevel() {
+  // Hide briefing
+  document.getElementById('briefingOverlay').classList.add('hidden');
+
+  const lvl = levels[state.currentLevelIndex];
+
+  // Reset game state
   state.hp = 100;
   state.score = 0;
   state.threatsSpawned = 0;
   state.threatsStopped = 0;
   state.threats = [];
+  state.currentHintIndex = 0;
 
   // Update UI header
   document.getElementById('ghTitle').textContent = `Level ${lvl.id}: ${lvl.name}`;
@@ -863,6 +1226,12 @@ function startLevel(index) {
   updateHP();
   updateWaveBar();
   setFeedback('Use your tools to stop the attacks!', '');
+
+  // Show the objective banner inside the game screen
+  document.getElementById('objText').textContent = lvl.objective;
+
+  // Load the first hint into the hint box
+  renderHint(lvl);
 
   // Draw the tool buttons for this level
   renderTools(lvl.tools);
@@ -874,6 +1243,53 @@ function startLevel(index) {
   setTimeout(() => {
     spawnThreats(lvl);
   }, 800);
+}
+
+/* ─────────────────────────────────────────────
+   HINT BOX — render current hint + dots
+───────────────────────────────────────────── */
+function renderHint(lvl) {
+  const hints = lvl.hints || [];
+  if (hints.length === 0) return;
+
+  const i     = state.currentHintIndex;
+  const hint  = hints[i];
+
+  // Update hint text
+  document.getElementById('hintText').textContent = hint.text;
+
+  // Update step list
+  const stepsEl = document.getElementById('hintSteps');
+  stepsEl.innerHTML = '';
+  (hint.steps || []).forEach(step => {
+    const div = document.createElement('div');
+    div.className = 'hint-step';
+    div.textContent = step;
+    stepsEl.appendChild(div);
+  });
+
+  // Update dots (one dot per hint)
+  const dotsEl = document.getElementById('hintDots');
+  dotsEl.innerHTML = '';
+  hints.forEach((_, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'hint-dot' + (idx === i ? ' active' : '');
+    dotsEl.appendChild(dot);
+  });
+}
+
+function nextHint() {
+  const lvl   = levels[state.currentLevelIndex];
+  const total = (lvl.hints || []).length;
+  state.currentHintIndex = (state.currentHintIndex + 1) % total;
+  renderHint(lvl);
+}
+
+function prevHint() {
+  const lvl   = levels[state.currentLevelIndex];
+  const total = (lvl.hints || []).length;
+  state.currentHintIndex = (state.currentHintIndex - 1 + total) % total;
+  renderHint(lvl);
 }
 
 /* ─────────────────────────────────────────────
@@ -1245,6 +1661,8 @@ function exitGame() {
 function restartAll() {
   state.completedLevels = [];
   state.totalScore = 0;
+  document.getElementById('briefingOverlay').classList.add('hidden');
+  document.getElementById('popup').classList.add('hidden');
   goTo('homeScreen');
 }
 </script>
