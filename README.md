@@ -58,10 +58,8 @@ DefenseX/
 ---
 
 ## ▶️ How to Run
-
-1. Download or clone the repository
-2. Open `index.html` in browser
-3. Start playing 🎮
+1. Click on the given demo link
+2. Start playing 🎮
 
 ---
 
